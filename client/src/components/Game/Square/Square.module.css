@@ -1,0 +1,15 @@
+.square {
+flex: 33%;
+height:100%;
+border: 1px solid #04AA6D;
+cursor: pointer;
+display: grid;
+place-items: center;
+font-size: 30px;
+color: rgb(20, 103, 46);
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.square:active {
+    background-color: #2eb655;
+}
