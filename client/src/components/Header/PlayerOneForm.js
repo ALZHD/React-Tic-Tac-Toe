@@ -9,7 +9,7 @@ export default function PlayerOneForm() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setPlayerOneAC(e.target.namefirst.value));
+    if (e.target.namefirst.value === '') { dispatch(setPlayerOneAC('X')); } else { dispatch(setPlayerOneAC(e.target.namefirst.value)); }
   };
   // для изменеия имени игрока 2
   return (

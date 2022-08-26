@@ -8,7 +8,7 @@ export default function PlayeTwoForm() {
   const nameSecond = useSelector((state) => state.playersecond.playerSecond);
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(setPlayerSecondAC(e.target.namesecond.value));
+    if (e.target.namesecond.value === '') { dispatch(setPlayerSecondAC('0')); } else { dispatch(setPlayerSecondAC(e.target.namesecond.value)); }
   };
   // для изменения имени игрока 2
   return (

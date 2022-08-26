@@ -4,8 +4,10 @@ import swal from 'sweetalert';
 import styles from './Board.module.css';
 import Square from '../Square/Square';
 import { Patterns } from '../Patterns/Patterns';
+import { setResultsAC } from '../../../redux/actions/ResultsAction';
 
 export default function GameLogic() {
+  const [history, setHistory] = useState([]);
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']); // доска
   const [player, setPlayer] = useState('0'); // игрок - сами крестики и нолики для игры
   const [result, setResult] = useState({ winner: 'none', state: 'none' });
@@ -35,16 +37,20 @@ export default function GameLogic() {
   const restartGame = () => {
     setBoard(['', '', '', '', '', '', '', '', '']);
     setPlayer('0');
-    setResult({ winner: 'none', state: 'none' });
+    // setResult({ winner: 'none', state: 'none' });
   };
 
   // проверка на наличие победителя и вызова модального окна
   // (использую внешнюю библиотеку sweetalert)
   const gameOver = (winner, state) => {
-    setResult({ winner, state });
+    setResult((prev) => ({
+      winner, state,
+    }));
     if (winner === '') { swal('Game is over', `the winner is: ${player}`); } else {
       swal('Game is over', `the winner is: ${winner}`);
     }
+    // dispatch(setResultsAC({ winner, state, playerNames }));
+    dispatch(setResultsAC({ winner, state, playerNames }));
     restartGame();
   };
 
@@ -59,6 +65,7 @@ export default function GameLogic() {
 
     if (filled) {
       gameOver('No one', 'Tie');
+
       return true;
     }
     return false;
@@ -110,6 +117,7 @@ export default function GameLogic() {
     }
 
     const isTie = checkIfTie();
+
     if (isTie) {
       return;
     }
