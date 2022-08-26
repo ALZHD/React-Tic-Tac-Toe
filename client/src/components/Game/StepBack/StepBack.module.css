@@ -1,0 +1,15 @@
+.buttonBack {
+    padding: 10px 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(152, 238, 157);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  

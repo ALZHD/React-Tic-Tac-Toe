@@ -5,6 +5,7 @@ import styles from './Board.module.css';
 import Square from '../Square/Square';
 import { Patterns } from '../Patterns/Patterns';
 import { setResultsAC } from '../../../redux/actions/ResultsAction';
+import StepBack from '../StepBack/StepBack';
 
 export default function GameLogic() {
   const [history, setHistory] = useState([]);
@@ -36,6 +37,7 @@ export default function GameLogic() {
   // cброс состояний для возобновления игры "с нуля".
   const restartGame = () => {
     setBoard(['', '', '', '', '', '', '', '', '']);
+    setHistory(['', '', '', '', '', '', '', '', '']);
     setPlayer('0');
     // setResult({ winner: 'none', state: 'none' });
   };
@@ -75,8 +77,14 @@ export default function GameLogic() {
   const сhangePlayer = () => {
     if (player === 'X') {
       setPlayer('0');
+      const historystep = board.slice();
+      // const currenthistory = board.push(historystep);
+      setHistory([...history, historystep]);
     } else {
       setPlayer('X');
+      const historystep = board.slice();
+      // const currenthistory = [board].push(historystep);
+      setHistory([...history, historystep]);
     }
   };
 
@@ -215,6 +223,7 @@ export default function GameLogic() {
           />
         </div>
       </div>
+
     </div>
   );
 }

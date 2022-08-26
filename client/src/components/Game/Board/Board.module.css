@@ -1,6 +1,6 @@
 .board {
-   width: 50vw;
-   height: 50vw;
+   width: 40vw;
+   height: 40vw;
    background-color: rgba(127, 255, 212, 0.801);
    border: 1px solid rgb(19, 176, 79);
    display: flex;

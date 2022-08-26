@@ -14,9 +14,10 @@ function App() {
         <PlayerOneForm />
         <PlayerTwoForm />
       </div>
-      <div>
+      <div className="GameLine">
         <GameLogic />
       </div>
+
       <div>
         <Rating />
       </div>
