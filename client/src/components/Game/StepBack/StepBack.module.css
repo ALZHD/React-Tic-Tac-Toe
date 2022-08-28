@@ -11,5 +11,6 @@
     box-shadow: 0 9px rgb(152, 238, 157);
     text-transform: uppercase;
     font-weight: bold;
-  }
-  
+    flex: 1 1 auto;
+  margin: 0 5px;
+}

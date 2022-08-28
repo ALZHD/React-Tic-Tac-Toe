@@ -153,8 +153,8 @@ export default function GameLogic() {
       <div className={styles.sectionstep}>
         <StepBack board={board} history={history} setBoard={setBoard} />
         <div className={styles.step}>
+          {'  '}
           Your step:
-
           {playerNames[player]}
           {' '}
           -

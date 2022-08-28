@@ -22,8 +22,9 @@ margin:0
 
 .GameLine{
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-items: center;
+
+ 
 }
 
 @media screen and (max-width: 626px) {
