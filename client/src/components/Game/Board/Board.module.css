@@ -16,9 +16,9 @@
    .sectionstep{
       display: flex;
    flex-direction: row;
-   margin-bottom: 2%;
+   margin-bottom: 5%;
    justify-content: center;
-   
+   margin-top: 2%;
    }
    
    .step { 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 import styles from './Board.module.css';
@@ -23,8 +23,24 @@ export default function GameLogic() {
     0: nameSecond,
   };
 
+  const saveBoardHistory = useCallback(() => {
+    const historyStep = board.slice();
+    setHistory([...history, historyStep]);
+  }, [history, board]);
+
+  const onUndo = useCallback(() => {
+    if (!history.length) {
+      return;
+    }
+    const prevousBoard = history[history.length - 1];
+    setBoard(prevousBoard);
+    history.pop();
+  }, [history]);
+
   // функция для заполнения каждого квадрата X и 0
   const fillSquare = (square) => {
+    saveBoardHistory();
+
     const newBoard = board.map((val, idx) => {
       if (idx === square && val === '') {
         return player;
@@ -39,6 +55,7 @@ export default function GameLogic() {
     setBoard(['', '', '', '', '', '', '', '', '']);
     setHistory(['', '', '', '', '', '', '', '', '']);
     setPlayer('0');
+    setHistory([]);
     // setResult({ winner: 'none', state: 'none' });
   };
 
@@ -51,7 +68,7 @@ export default function GameLogic() {
     if (winner === '') { swal('Game is over', `the winner is: ${player}`); } else {
       swal('Game is over', `the winner is: ${winner}`);
     }
-    // dispatch(setResultsAC({ winner, state, playerNames }));
+
     dispatch(setResultsAC({ winner, state, playerNames }));
     restartGame();
   };
@@ -77,14 +94,8 @@ export default function GameLogic() {
   const сhangePlayer = () => {
     if (player === 'X') {
       setPlayer('0');
-      const historystep = board.slice();
-      // const currenthistory = board.push(historystep);
-      setHistory([...history, historystep]);
     } else {
       setPlayer('X');
-      const historystep = board.slice();
-      // const currenthistory = [board].push(historystep);
-      setHistory([...history, historystep]);
     }
   };
 
@@ -140,6 +151,7 @@ export default function GameLogic() {
   return (
     <div className={styles.game}>
       <div className={styles.sectionstep}>
+        <StepBack board={board} history={history} setBoard={setBoard} />
         <div className={styles.step}>
           Your step:
 
