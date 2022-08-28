@@ -16,11 +16,16 @@ npm start
 
 версия ноды - v18.2.0
 
+Задеплоил через vercel
+
+Перейдите по ссылке
+https://react-tic-tac-toe-game-gules.vercel.app/
+
+
 
 # Скриншот
 
 
-<img width="734" alt="Снимок экрана 2022-08-26 в 20 05 37" src="https://user-images.githubusercontent.com/105541761/186957327-4ff64830-42fb-4288-b29c-415968a3d590.png">
-
+<img width="660" alt="Снимок экрана 2022-08-28 в 23 40 48" src="https://user-images.githubusercontent.com/105541761/187093693-1f82684b-bd08-4179-b21c-c4d36aa12853.png">
 
 
