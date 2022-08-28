@@ -1,3 +1,4 @@
+<img width="660" alt="Снимок экрана 2022-08-29 в 00 24 33" src="https://user-images.githubusercontent.com/105541761/187095253-94a1097b-bffc-49d6-acfa-a0b9bb800ac1.png">
 # React-Tic-Tac-Toe
 Tic-Tac-Toe Game (React,Redux)
 Игра в Крестики-Нолики на Javascript с исполозванием React, Redux.
